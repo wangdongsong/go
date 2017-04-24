@@ -49,7 +49,7 @@ func main() {
 	var x interface{}
 	switch i := x.(type) {
 	case nil:
-		fmt.Println("x type of %T", i)
+		fmt.Println("x type of %t", i)
 	case int:
 		fmt.Println("int")
 	case float64:
