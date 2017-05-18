@@ -16,7 +16,23 @@ func main()  {
 	book2.subject = "Java Learing"
 	book2.bookId = 2
 
-	fmt.Printf("Book1 title : %a\n", book1.title)
+	printBook(book2)
+	fmt.Printf("Book1 title : %s\n", book1.title)
+	printPointBook(&book1)
+}
+
+/**
+ * 指针
+ */
+func printPointBook(books *Books) {
+	fmt.Printf("Book title: %s\n", books.title)
+}
+
+/**
+ * 函数
+ */
+func printBook(book Books) {
+	fmt.Printf("Book1 title : %s\n", book.title)
 }
 
 type Books struct {
