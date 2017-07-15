@@ -11,7 +11,7 @@ type Classpath struct {
 	userClasspath Entry
 }
 
-func parse(jreOption, cpOption string) *Classpath{
+func Parse(jreOption, cpOption string) *Classpath{
 	cp := &Classpath{}
 	cp.parseBootAndExtClasspath(jreOption)
 	cp.parseUserClasspath(cpOption)
@@ -62,7 +62,7 @@ func (self *Classpath) parseUserClasspath(cpOption string){
 	self.userClasspath = newEntry(cpOption)
 }
 
-func (self *Classpath) ReadClas(className string) ([]byte, Entry, error){
+func (self *Classpath) ReadClass(className string) ([]byte, Entry, error){
 	className = className + ".class"
 
 	if data, entry, err := self.bootClasspath.readClass(className); err == nil {
