@@ -1,4 +1,4 @@
-package jvmgo
+package main
 
 import "fmt"
 
