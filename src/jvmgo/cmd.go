@@ -1,7 +1,7 @@
 /*
  * 在ch01的基础上搜索class文件
  */
-package main
+package jvmgo
 
 import (
 	"flag"
@@ -10,16 +10,18 @@ import (
 	"strings"
 )
 
+import "jvm/classpath"
+
 
 func startJVM(cmd *Cmd){
-	cp := classpath.Parse(cmd.XjreOption, cmd.cpOption)
+	cp := classpath.parse(cmd.XjreOption, cmd.cpOption)
 
 	fmt.Printf("classpath: %s class: %s args: %v\n", cmd.cpOption, cmd.class, cmd.args)
 
 	className := strings.Replace(cmd.class, ".", "/", -1)
 	classData, _, err := cp.ReadClass(className)
 	if err != nil{
-		fmt.Printf("Could not find or load main class %s\n", cmd.class)
+		fmt.Printf("Could not find or load basic class %s\n", cmd.class)
 		return
 	}
 
