@@ -1,20 +1,19 @@
 /*
  * 在ch01的基础上搜索class文件
  */
-package jvmgo
+package main
 
 import (
 	"flag"
 	"fmt"
 	"os"
 	"strings"
+	"jvmgo/classpath"
 )
-
-import "jvm/classpath"
 
 
 func startJVM(cmd *Cmd){
-	cp := classpath.parse(cmd.XjreOption, cmd.cpOption)
+	cp := classpath.Parse(cmd.XjreOption, cmd.cpOption)
 
 	fmt.Printf("classpath: %s class: %s args: %v\n", cmd.cpOption, cmd.class, cmd.args)
 
