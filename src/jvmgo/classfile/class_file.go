@@ -47,6 +47,15 @@ func (self *ClassFile) read(reader *ClassReader) {
 	self.attributes = readAttributes(reader, self.constantPool)
 }
 
+//getter
+func (self *ClassFile) MajorVersion() uint16 {
+	return self.majorVersion
+}
+
+//getter
+func (self *ClassFile) ClassName() string {
+	return self.constantPool.getClassName((self.thisClass))
+}
 
 
 
