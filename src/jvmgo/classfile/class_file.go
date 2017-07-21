@@ -57,5 +57,9 @@ func (self *ClassFile) ClassName() string {
 	return self.constantPool.getClassName((self.thisClass))
 }
 
-
-
+func (self *ClassFile) SuperClassName()  string {
+	if self.superClass > 0{
+		return self.constantPool.getClassName(self.superClass)
+	}
+	return ""
+}
