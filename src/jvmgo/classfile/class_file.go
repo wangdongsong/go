@@ -71,3 +71,11 @@ func (self *ClassFile) InterfaceNames()  []string {
 	}
 	return interfaceNames
 }
+
+//魔数
+func (self *ClassFile) readAndCheckMagic(reader *ClassReader){
+	maic := reader.readUint32()
+	if maic != 0xCAFEBABE {
+		panic("java.lang.ClassFormatError:magic")
+	}
+}
