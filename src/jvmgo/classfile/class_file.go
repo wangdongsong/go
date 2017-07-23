@@ -94,3 +94,4 @@ func (self *ClassFile) readAndCheckVersion(reader *ClassReader){
 	}
 	panic("java.lang.UnsupportedClassVersionError!")
 }
+
