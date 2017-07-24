@@ -12,7 +12,25 @@ func readMembers(reader *ClassReader, cp ConstantPool) []*MemberInfo{
 	memberCount := reader.readUint16()
 	members := make([]*MemberInfo, memberCount)
 	for i:= range members{
-		members[i] = readMembers(reader, cp)
+		members[i] = readMember(reader, cp)
 	}
 	return members
+}
+
+func readMember(reader *ClassReader, cp ConstantPool) *MemberInfo{
+	return &MemberInfo{
+		cp: cp,
+		accessFlags: reader.readUint16(),
+		nameIndex: reader.readUint16(),
+		descriptorIndex:reader.readUint16(),
+		attributes:readAttributes(reader, cp),
+	}
+}
+
+func (self *Memberinfo) Name() string{
+	return self.cp.getUtf8(self.nameIndex)
+}
+
+func (self *MemberInfo) Descriptor() string{
+	return self.cp.getUtf8(self.descriptiorIndex)
 }
