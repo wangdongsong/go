@@ -1,22 +1,48 @@
 package classfile
 
 const (
-	CONSTAT_class = 7
-	CONSTAT_Fieldref = 9
-	CONSTAT_Methodref = 10
-	CONSTAT_InterfaceMethodref = 11
-	CONSTAT_String = 8
-	CONSTAT_Integer = 3
-	CONSTAT_Float = 4
-	CONSTAT_Long = 5
-	CONSTAT_Double = 6
-	CONSTAT_NameAndType = 12
-	CONSTAT_Utf8 = 1
-	CONSTAT_MethodHandle = 15
-	CONSTAT_MethodType = 16
-	CONSTAT_InvokeDynamic = 18
+	CONSTANT_Class = 7
+	CONSTANT_Fieldref = 9
+	CONSTANT_Methodref = 10
+	CONSTANT_InterfaceMethodref = 11
+	CONSTANT_String = 8
+	CONSTANT_Integer = 3
+	CONSTANT_Float = 4
+	CONSTANT_Long = 5
+	CONSTANT_Double = 6
+	CONSTANT_NameAndType = 12
+	CONSTANT_Utf8 = 1
+	CONSTANT_MethodHandle = 15
+	CONSTANT_MethodType = 16
+	CONSTANT_InvokeDynamic = 18
 )
 
 type ConstantInfo interface {
 	readInfo(reader *ClassReader)
+}
+
+func readContantInfo(reader *ClassReader, cp ConstantPool) ConstantInfo {
+	tag := reader.readUint8()
+	c := newConstantInfo(tag, cp)
+	c.readerInfo(reader)
+	return c
+}
+
+func newConstantInfo(tag uint8, cp ConstantPool) ConstantInfo{
+	switch tag {
+	case CONSTANT_Integer: return &ConstantIntegerInfo{}
+	case CONSTANT_Float: return &ConstantFloatInfo{}
+	case CONSTANT_Long: return &ConstantLongInfo{}
+	case CONSTANT_Utf8: return &ConstantUtf8Info{}
+	case CONSTANT_String: return &ConstantStringInfo{}
+	case CONSTANT_Class: return &ConstantClassInfo{}
+	case CONSTANT_Fieldref: return &ConstantFieldrefInfo{ConstantMemberrefInfo{cp: cp}}
+	case CONSTANT_Methodref: return &ConstantMethodrefInfo{ConstantmemberrefInfo{cp: cp}}
+	case CONSTANT_InterfaceMethodref: &ConstantInterfaceMethodrefInfo{ConstantMemberrefInfo{cp: cp}}
+	case CONSTANT_NameAndType: return &ConstantNameAndTypeInfo{}
+	case CONSTANT_MethodType: return &ConstantMethodTypeInfo{}
+	case CONSTANT_MethodHandle: return &ConstantMethodHandleInfo{}
+	case CONSTANT_InvokeDynamic:return &ConstantInvokeDynamicInfo{}
+	default: panic("java.lang.ClassFormatError: constant pool tag!")
+	}
 }
