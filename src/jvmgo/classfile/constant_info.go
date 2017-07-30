@@ -21,10 +21,10 @@ type ConstantInfo interface {
 	readInfo(reader *ClassReader)
 }
 
-func readContantInfo(reader *ClassReader, cp ConstantPool) ConstantInfo {
+func readConstantInfo(reader *ClassReader, cp ConstantPool) ConstantInfo {
 	tag := reader.readUint8()
 	c := newConstantInfo(tag, cp)
-	c.readerInfo(reader)
+	c.readInfo(reader)
 	return c
 }
 
@@ -35,9 +35,10 @@ func newConstantInfo(tag uint8, cp ConstantPool) ConstantInfo{
 	case CONSTANT_Long: return &ConstantLongInfo{}
 	case CONSTANT_Utf8: return &ConstantUtf8Info{}
 	case CONSTANT_String: return &ConstantStringInfo{}
+	case CONSTANT_Double:return &ConstantDoubleInfo{}
 	case CONSTANT_Class: return &ConstantClassInfo{}
 	case CONSTANT_Fieldref: return &ConstantFieldrefInfo{ConstantMemberrefInfo{cp: cp}}
-	case CONSTANT_Methodref: return &ConstantMethodrefInfo{ConstantmemberrefInfo{cp: cp}}
+	case CONSTANT_Methodref: return &ConstantMethodrefInfo{ConstantMemberrefInfo{cp: cp}}
 	case CONSTANT_InterfaceMethodref: return &ConstantInterfaceMethodrefInfo{ConstantMemberrefInfo{cp: cp}}
 	case CONSTANT_NameAndType: return &ConstantNameAndTypeInfo{}
 	case CONSTANT_MethodType: return &ConstantMethodTypeInfo{}
