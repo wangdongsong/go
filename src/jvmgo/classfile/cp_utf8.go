@@ -15,7 +15,7 @@ func (self *ConstantUtf8Info) readInfo(reader *ClassReader){
 	self.str = decodeMUTF8(bytes)
 }
 
-/ mutf8 -> utf16 -> utf32 -> string
+// mutf8 -> utf16 -> utf32 -> string
 // see java.io.DataInputStream.readUTF(DataInput)
 func decodeMUTF8(bytearr []byte) string {
 	utflen := len(bytearr)
