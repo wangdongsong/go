@@ -6,6 +6,10 @@ type ClassReader struct {
 	data []byte
 }
 
+func newClassReader(data []byte) *ClassReader {
+	return &ClassReader{data}
+}
+
 //读取u1类型数据
 func (self *ClassReader) readUint8() uint8 {
 	val := self.data[0]
@@ -30,7 +34,7 @@ func (self *ClassReader) readUint32() uint32  {
 //读取uint64(Java虚拟机规范并没有定义u8)类型数据
 func (self *ClassReader) readUint64() uint64  {
 	val := binary.BigEndian.Uint64(self.data)
-	self.data = self.data[8:0]
+	self.data = self.data[8:]
 	return val
 }
 

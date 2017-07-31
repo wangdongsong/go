@@ -1,7 +1,5 @@
 package classfile
 
-import "fmt"
-
 //类文件结构
 type ClassFile struct {
 	magic uint32
@@ -13,29 +11,12 @@ type ClassFile struct {
 	superClass uint16
 	interfaces []uint16
 	fields []*MemberInfo
-	methods []*Memberinfo
+	methods []*MemberInfo
 	attributes []AttributeInfo
 }
 
-func Parse(classData []byte) (cf *ClassFile, err error){
-	defer func(){
-		if r := recover(); r != nil{
-			var ok bool
-			err, ok = r.(error)
-			if !ok {
-				err = fmt.Errorf("%v", r)
-			}
-		}
-	}()
-
-	cr := &ClassReader{classData}
-	cf = &ClassFile{}
-	cf.read(cr)
-	return
-}
-
 func (self *ClassFile) read(reader *ClassReader) {
-	self.readAndCheckmagic(reader)
+	self.readAndCheckMagic(reader)
 	self.readAndCheckVersion(reader)
 	self.constantPool = readConstantPool(reader)
 	self.accessFlags = reader.readUint16()
@@ -50,6 +31,10 @@ func (self *ClassFile) read(reader *ClassReader) {
 //getter
 func (self *ClassFile) MajorVersion() uint16 {
 	return self.majorVersion
+}
+
+func (self *ClassFile) MinorVersion() uint16 {
+	return self.minorVersion
 }
 
 //getter
