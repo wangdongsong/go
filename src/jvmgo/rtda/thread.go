@@ -14,7 +14,7 @@ func (self *Thread) PC() int{
 	return self.pc
 }
 
-func SetPC(pc int)  {
+func (self *Thread) SetPC(pc int)  {
 	self.pc = pc
 }
 
