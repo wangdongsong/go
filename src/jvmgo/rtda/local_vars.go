@@ -1,5 +1,6 @@
 package rtda
 
+import "jvmgo/rtda/heap"
 
 type LocalVars struct {
 	slots []interface{}
@@ -12,6 +13,22 @@ func newLocalVars(size uint) *LocalVars {
 	} else {
 		return nil
 	}
+}
+
+func (self *LocalVars) GetThis() *heap.Object {
+	return self.GetRef(0)
+}
+
+func (self *LocalVars) GetRef(index uint) *heap.Object {
+	ref := self.slots[index]
+	if ref == nil {
+		return nil
+	} else {
+		return ref.(*heap.Object)
+	}
+}
+func (self *LocalVars) SetRef(index uint, ref *heap.Object) {
+	self.slots[index] = ref
 }
 
 func (self *LocalVars) GetBoolean(index uint) bool {
