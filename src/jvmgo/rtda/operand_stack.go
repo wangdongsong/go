@@ -1,5 +1,6 @@
 package rtda
 
+import "jvmgo/rtda/heap"
 
 type OperandStack struct {
 	size  uint
@@ -130,5 +131,21 @@ func (self *OperandStack) Clear() {
 func (self *OperandStack) HackSetSlots(slots []interface{}) {
 	self.slots = slots
 	self.size = uint(len(slots))
+}
+
+func (self *OperandStack) PushRef(ref *heap.Object) {
+	self.slots[self.size] = ref
+	self.size++
+}
+func (self *OperandStack) PopRef() *heap.Object {
+	self.size--
+	top := self.slots[self.size]
+	self.slots[self.size] = nil
+
+	if top == nil {
+		return nil
+	} else {
+		return top.(*heap.Object)
+	}
 }
 
