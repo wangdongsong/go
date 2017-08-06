@@ -1,12 +1,12 @@
 package conversions
 
 import (
-	"github.com/zxh0/jvm.go/jvmgo/instructions/base"
-	"github.com/zxh0/jvm.go/jvmgo/rtda"
+	"jvmgo/rtda"
+	"jvmgo/instruction"
 )
 
 // Convert int to byte
-type I2B struct{ base.NoOperandsInstruction }
+type I2B struct{ instruction.NoOperandsInstruction }
 
 func (self *I2B) Execute(frame *rtda.Frame) {
 	stack := frame.OperandStack()
@@ -16,7 +16,7 @@ func (self *I2B) Execute(frame *rtda.Frame) {
 }
 
 // Convert int to char
-type I2C struct{ base.NoOperandsInstruction }
+type I2C struct{ instruction.NoOperandsInstruction }
 
 func (self *I2C) Execute(frame *rtda.Frame) {
 	stack := frame.OperandStack()
@@ -26,7 +26,7 @@ func (self *I2C) Execute(frame *rtda.Frame) {
 }
 
 // Convert int to short
-type I2S struct{ base.NoOperandsInstruction }
+type I2S struct{ instruction.NoOperandsInstruction }
 
 func (self *I2S) Execute(frame *rtda.Frame) {
 	stack := frame.OperandStack()
@@ -36,7 +36,7 @@ func (self *I2S) Execute(frame *rtda.Frame) {
 }
 
 // Convert int to long
-type I2L struct{ base.NoOperandsInstruction }
+type I2L struct{ instruction.NoOperandsInstruction }
 
 func (self *I2L) Execute(frame *rtda.Frame) {
 	stack := frame.OperandStack()
