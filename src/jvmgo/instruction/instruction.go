@@ -1,28 +1,27 @@
 package instruction
 
-import "jvmgo/rtda"
+import (
+	"jvmgo/rtda"
+)
 
-//指令及指令解码
 type Instruction interface {
-	//从字节码中提取操作数
 	FetchOperands(reader *BytecodeReader)
-	//执行指令逻辑
 	Execute(frame *rtda.Frame)
 }
 
 type NoOperandsInstruction struct {
-
+	// empty
 }
 
-func (self *NoOperandsInstruction) FetchOperands(reader *BytecodeReader)  {
-
+func (self *NoOperandsInstruction) FetchOperands(reader *BytecodeReader) {
+	// nothing to do
 }
 
 type BranchInstruction struct {
-	Offset int
+	Offset int // todo target
 }
 
-func (self *BranchInstruction) FetchOperands(reader *BytecodeReader){
+func (self *BranchInstruction) FetchOperands(reader *BytecodeReader) {
 	self.Offset = int(reader.ReadInt16())
 }
 
@@ -30,7 +29,7 @@ type Index8Instruction struct {
 	Index uint
 }
 
-func (self *Index8Instruction) Fetchoperands(reader *BytecodeReader){
+func (self *Index8Instruction) FetchOperands(reader *BytecodeReader) {
 	self.Index = uint(reader.ReadUint8())
 }
 
@@ -38,7 +37,6 @@ type Index16Instruction struct {
 	Index uint
 }
 
-func (self *Index16Instruction) FetchOperands(reader *BytecodeReader)  {
-	self.Index = uint(reader.ReadUint16)
-
+func (self *Index16Instruction) FetchOperands(reader *BytecodeReader) {
+	self.Index = uint(reader.ReadUint16())
 }
