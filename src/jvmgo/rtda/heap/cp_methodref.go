@@ -1,7 +1,7 @@
 package heap
 
 import (
-	cf "github.com/zxh0/jvm.go/jvmgo/classfile"
+	cf "jvmgo/classfile"
 )
 
 type ConstantMethodref struct {
