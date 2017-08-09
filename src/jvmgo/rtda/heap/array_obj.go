@@ -1,7 +1,7 @@
 package heap
 
 import (
-	"github.com/zxh0/jvm.go/jvmgo/jutil"
+	"jvmgo/jutil"
 )
 
 func (self *Object) IsArray() bool {
