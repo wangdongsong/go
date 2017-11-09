@@ -1,7 +1,4 @@
 bin/
 .project
-.idea/go.iml
-.idea/inspectionProfiles/
-.idea/modules.xml
-.idea/workspace.xml
+.idea/
 pkg/
