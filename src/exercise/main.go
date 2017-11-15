@@ -5,7 +5,7 @@ import (
 	"fmt"
 )
 
-func main()  {
+func main() {
 	result := calc.Add(1, 2)
 	fmt.Printf("%d\n", result)
 }
