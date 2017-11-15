@@ -1,13 +1,13 @@
 package basic
 
 import (
-	"math"
 	"fmt"
+	"math"
 )
 
 var globalVar = 100
 
-func main()  {
+func main() {
 	fmt.Printf("global var is %d \n", globalVar)
 	baseFunc()
 
@@ -29,17 +29,17 @@ type Circle struct {
 /**
  * 方法就是一个包含了接受者的函数
  */
-func (c Circle) getArea() float64  {
+func (c Circle) getArea() float64 {
 	return 3.14 * c.radius * c.radius
 }
 
 /**
  * 闭包，函数返回匿名函数
  */
-func getSequence() func() int  {
+func getSequence() func() int {
 	i := 0
-	return func() int{
-		i+=1
+	return func() int {
+		i += 1
 		return i
 	}
 }
@@ -47,8 +47,8 @@ func getSequence() func() int  {
 /**
  * 基本函数，函数作为值
  */
-func baseFunc()  {
-	getSquareRoot := func(x float64) float64{
+func baseFunc() {
+	getSquareRoot := func(x float64) float64 {
 		return math.Sqrt(x)
 	}
 

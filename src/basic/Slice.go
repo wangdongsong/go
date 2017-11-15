@@ -2,8 +2,8 @@ package basic
 
 import "fmt"
 
-func main()  {
-	var numbers = make([] int, 3, 5)
+func main() {
+	var numbers = make([]int, 3, 5)
 	fmt.Printf("len = %d cap = %d slice=%v\n", len(numbers), cap(numbers), numbers)
 
 	var numbers1 []int
@@ -16,7 +16,7 @@ func main()  {
 	subSlice()
 }
 
-func subSlice()  {
+func subSlice() {
 
 	//创建切片
 	numbers := []int{0, 1, 2, 3, 4, 5, 6, 7, 8}
@@ -28,7 +28,7 @@ func subSlice()  {
 	//打印子切片从索引1到索引4
 	fmt.Println("number[1:4] == ", numbers[1:4])
 
-	fmt.Println("number[:3] ==", numbers[:3] )
+	fmt.Println("number[:3] ==", numbers[:3])
 
 	fmt.Println("numbers[4:] == ", numbers[4:])
 

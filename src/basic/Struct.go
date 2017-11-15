@@ -2,7 +2,7 @@ package basic
 
 import "fmt"
 
-func main()  {
+func main() {
 	var book1 Books
 	var book2 Books
 
@@ -36,8 +36,8 @@ func printBook(book Books) {
 }
 
 type Books struct {
-	title string
-	author string
+	title   string
+	author  string
 	subject string
-	bookId int
+	bookId  int
 }

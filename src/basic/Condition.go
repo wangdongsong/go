@@ -15,24 +15,26 @@ func main() {
 	}
 
 	if a == 10 {
-		if a < b  {
+		if a < b {
 			println("a < b")
 		}
 	}
-
 
 	var grade string = "B"
 	var mark int = 90
 
 	switch mark {
-		case 90 : grade = "A"
-		case 80 : grade = "B"
-		case 50, 60, 70 : grade = "C"
-		default:
-			grade = "D"
+	case 90:
+		grade = "A"
+	case 80:
+		grade = "B"
+	case 50, 60, 70:
+		grade = "C"
+	default:
+		grade = "D"
 	}
 
-	switch  {
+	switch {
 	case grade == "A":
 		fmt.Println("优秀")
 	case grade == "B":
