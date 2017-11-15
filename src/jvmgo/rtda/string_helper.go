@@ -1,8 +1,8 @@
 package rtda
 
 import (
-	"unicode/utf16"
 	"jvmgo/rtda/heap"
+	"unicode/utf16"
 )
 
 // todo: is there a better way to create String?

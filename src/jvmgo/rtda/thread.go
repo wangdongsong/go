@@ -1,10 +1,10 @@
 package rtda
 
 import (
-	"sync"
-	"strings"
 	"fmt"
 	"jvmgo/rtda/heap"
+	"strings"
+	"sync"
 )
 
 //线程
@@ -21,8 +21,8 @@ type Thread struct {
 	pc              int // the address of the instruction currently being executed
 	stack           *Stack
 	frameCache      *FrameCache
-	jThread         *heap.Object    // java.lang.Thread
-	lock            *sync.Mutex // state lock
+	jThread         *heap.Object // java.lang.Thread
+	lock            *sync.Mutex  // state lock
 	ch              chan int
 	sleepingFlag    bool
 	interruptedFlag bool

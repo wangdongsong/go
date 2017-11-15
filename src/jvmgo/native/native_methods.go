@@ -1,8 +1,6 @@
 package native
 
 import (
-	"jvmgo/rtda"
-	"jvmgo/rtda/heap"
 	_ "jvmgo/native/java/awt"
 	_ "jvmgo/native/java/io"
 	_ "jvmgo/native/java/lang"
@@ -20,6 +18,8 @@ import (
 	_ "jvmgo/native/sun/misc"
 	_ "jvmgo/native/sun/nio/ch"
 	_ "jvmgo/native/sun/reflect"
+	"jvmgo/rtda"
+	"jvmgo/rtda/heap"
 )
 
 func init() {

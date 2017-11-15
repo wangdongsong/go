@@ -4,7 +4,7 @@ type AttributeInfo interface {
 	readInfo(reader *ClassReader)
 }
 
-func readAttributes(reader *ClassReader, cp ConstantPool) [] AttributeInfo{
+func readAttributes(reader *ClassReader, cp ConstantPool) []AttributeInfo {
 	attributesCount := reader.readUint16()
 	attributes := make([]AttributeInfo, attributesCount)
 	for i := range attributes {
@@ -13,7 +13,7 @@ func readAttributes(reader *ClassReader, cp ConstantPool) [] AttributeInfo{
 	return attributes
 }
 
-func readAttribute(reader *ClassReader, cp ConstantPool) AttributeInfo{
+func readAttribute(reader *ClassReader, cp ConstantPool) AttributeInfo {
 	attriNameIndex := reader.readUint16()
 	attrName := cp.getUtf8(attriNameIndex)
 	attrLen := reader.readUint32()
@@ -22,16 +22,25 @@ func readAttribute(reader *ClassReader, cp ConstantPool) AttributeInfo{
 	return attrInfo
 }
 
-func newAttributeInfo(attrName string, attrLen uint32, cp ConstantPool) AttributeInfo{
+func newAttributeInfo(attrName string, attrLen uint32, cp ConstantPool) AttributeInfo {
 	switch attrName {
-		case "Code": return &CodeAttribute{cp: cp}
-		case "ConstantValue" : return &ConstantValueAttribute{}
-		case "Deprecated" : return &DeprecatedAttribute{}
-		case "Exceptions": return &ExceptionsAttribute{}
-		case "LineNumberTable": return &LineNumberTableAttribute{}
-		case "LocalVariableTable" : return &LocalVariableTableAttribute{}
-		case "SourceFile": return &SourceFileAttribute{cp: cp}
-		case "Synthetic": return &SyntheticAttribute{}
-		default: return &UnparsedAttribute{attrName, attrLen, nil}
+	case "Code":
+		return &CodeAttribute{cp: cp}
+	case "ConstantValue":
+		return &ConstantValueAttribute{}
+	case "Deprecated":
+		return &DeprecatedAttribute{}
+	case "Exceptions":
+		return &ExceptionsAttribute{}
+	case "LineNumberTable":
+		return &LineNumberTableAttribute{}
+	case "LocalVariableTable":
+		return &LocalVariableTableAttribute{}
+	case "SourceFile":
+		return &SourceFileAttribute{cp: cp}
+	case "Synthetic":
+		return &SyntheticAttribute{}
+	default:
+		return &UnparsedAttribute{attrName, attrLen, nil}
 	}
 }

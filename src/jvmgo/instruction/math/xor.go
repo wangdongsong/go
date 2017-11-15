@@ -6,11 +6,14 @@ import (
 )
 
 // Boolean XOR int
-type IXOR struct{ instruction.NoOperandsInstruction }
+type IXOR struct {
+	instruction.NoOperandsInstruction
+}
 
 // Boolean XOR long
-type LXOR struct{ instruction.NoOperandsInstruction }
-
+type LXOR struct {
+	instruction.NoOperandsInstruction
+}
 
 func (self *IXOR) Execute(frame *rtda.Frame) {
 	stack := frame.OperandStack()

@@ -1,15 +1,19 @@
 package math
 
 import (
-	"jvmgo/rtda"
 	"jvmgo/instruction"
+	"jvmgo/rtda"
 )
 
 // Boolean OR int
-type IOR struct{ instruction.NoOperandsInstruction }
+type IOR struct {
+	instruction.NoOperandsInstruction
+}
 
 // Boolean OR long
-type LOR struct{ instruction.NoOperandsInstruction }
+type LOR struct {
+	instruction.NoOperandsInstruction
+}
 
 func (self *IOR) Execute(frame *rtda.Frame) {
 	stack := frame.OperandStack()
@@ -18,7 +22,6 @@ func (self *IOR) Execute(frame *rtda.Frame) {
 	result := v1 | v2
 	stack.PushInt(result)
 }
-
 
 func (self *LOR) Execute(frame *rtda.Frame) {
 	stack := frame.OperandStack()

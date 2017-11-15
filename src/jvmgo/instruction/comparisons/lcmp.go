@@ -17,7 +17,7 @@ func (self *LCMP) Execute(frame *rtda.Frame) {
 	v1 := stack.PopLong()
 	if v1 > v2 {
 		stack.PushInt(1)
-	}else if v1 == v2 {
+	} else if v1 == v2 {
 		stack.PushInt(0)
 	} else {
 		stack.PushInt(-1)

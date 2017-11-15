@@ -27,7 +27,7 @@ type LSTORE_3 struct {
 	instruction.NoOperandsInstruction
 }
 
-func _lstore(frame *rtda.Frame, index uint){
+func _lstore(frame *rtda.Frame, index uint) {
 	val := frame.OperandStack().PopLong()
 	frame.LocalVars().SetLong(index, val)
 }

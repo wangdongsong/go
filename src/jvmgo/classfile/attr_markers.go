@@ -8,8 +8,8 @@ type SyntheticAttribute struct {
 	MarkerAttribute
 }
 
-type MarkerAttribute struct {}
+type MarkerAttribute struct{}
 
-func (self *MarkerAttribute) readInfo(reader *ClassReader){
+func (self *MarkerAttribute) readInfo(reader *ClassReader) {
 	//read nothin
 }

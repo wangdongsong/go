@@ -74,6 +74,6 @@ func (self *DCONST_0) Execute(frame rtda.Frame) {
 }
 
 //iconst_m1指令把int型-1推入操作数栈顶
-func (self *ICONST_M1) Execute(frame rtda.Frame)  {
+func (self *ICONST_M1) Execute(frame rtda.Frame) {
 	frame.OperandStack().PushInt(-1)
 }

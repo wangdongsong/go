@@ -1,12 +1,14 @@
 package math
 
 import (
-	"jvmgo/rtda"
 	"jvmgo/instruction"
+	"jvmgo/rtda"
 )
 
 // Subtract double
-type DSUB struct{ instruction.NoOperandsInstruction }
+type DSUB struct {
+	instruction.NoOperandsInstruction
+}
 
 func (self *DSUB) Execute(frame *rtda.Frame) {
 	stack := frame.OperandStack()
@@ -17,7 +19,9 @@ func (self *DSUB) Execute(frame *rtda.Frame) {
 }
 
 // Subtract float
-type FSUB struct{ instruction.NoOperandsInstruction }
+type FSUB struct {
+	instruction.NoOperandsInstruction
+}
 
 func (self *FSUB) Execute(frame *rtda.Frame) {
 	stack := frame.OperandStack()
@@ -28,7 +32,9 @@ func (self *FSUB) Execute(frame *rtda.Frame) {
 }
 
 // Subtract int
-type ISUB struct{ instruction.NoOperandsInstruction }
+type ISUB struct {
+	instruction.NoOperandsInstruction
+}
 
 func (self *ISUB) Execute(frame *rtda.Frame) {
 	stack := frame.OperandStack()
@@ -39,7 +45,9 @@ func (self *ISUB) Execute(frame *rtda.Frame) {
 }
 
 // Subtract long
-type LSUB struct{ instruction.NoOperandsInstruction }
+type LSUB struct {
+	instruction.NoOperandsInstruction
+}
 
 func (self *LSUB) Execute(frame *rtda.Frame) {
 	stack := frame.OperandStack()

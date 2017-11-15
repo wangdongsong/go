@@ -1,8 +1,8 @@
 package control
 
 import (
-	"jvmgo/rtda"
 	"jvmgo/instruction"
+	"jvmgo/rtda"
 )
 
 type TABLE_SWITCH struct {
@@ -33,4 +33,3 @@ func (self *TABLE_SWITCH) Execute(frame *rtda.Frame) {
 
 	instruction.Branch(frame, offset)
 }
-

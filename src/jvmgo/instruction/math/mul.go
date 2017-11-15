@@ -1,12 +1,14 @@
 package math
 
 import (
-	"jvmgo/rtda"
 	"jvmgo/instruction"
+	"jvmgo/rtda"
 )
 
 // Multiply double
-type DMUL struct{ instruction.NoOperandsInstruction }
+type DMUL struct {
+	instruction.NoOperandsInstruction
+}
 
 func (self *DMUL) Execute(frame *rtda.Frame) {
 	stack := frame.OperandStack()
@@ -17,7 +19,9 @@ func (self *DMUL) Execute(frame *rtda.Frame) {
 }
 
 // Multiply float
-type FMUL struct{ instruction.NoOperandsInstruction }
+type FMUL struct {
+	instruction.NoOperandsInstruction
+}
 
 func (self *FMUL) Execute(frame *rtda.Frame) {
 	stack := frame.OperandStack()
@@ -28,7 +32,9 @@ func (self *FMUL) Execute(frame *rtda.Frame) {
 }
 
 // Multiply int
-type IMUL struct{ instruction.NoOperandsInstruction }
+type IMUL struct {
+	instruction.NoOperandsInstruction
+}
 
 func (self *IMUL) Execute(frame *rtda.Frame) {
 	stack := frame.OperandStack()
@@ -39,7 +45,9 @@ func (self *IMUL) Execute(frame *rtda.Frame) {
 }
 
 // Multiply long
-type LMUL struct{ instruction.NoOperandsInstruction }
+type LMUL struct {
+	instruction.NoOperandsInstruction
+}
 
 func (self *LMUL) Execute(frame *rtda.Frame) {
 	stack := frame.OperandStack()

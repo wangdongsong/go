@@ -20,7 +20,7 @@ func (self *BIPUSH) FetchOperands(reader *instruction.BytecodeReader) {
 	self.val = reader.ReadInt8()
 }
 
-func (self *BIPUSH) Execute(frame *rtda.Frame)  {
+func (self *BIPUSH) Execute(frame *rtda.Frame) {
 	i := int32(self.val)
 	frame.OperandStack().PushInt(i)
 }

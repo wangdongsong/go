@@ -25,4 +25,3 @@ func (self *LocalVariableTableAttribute) readInfo(reader *ClassReader) {
 		}
 	}
 }
-

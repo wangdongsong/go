@@ -2,8 +2,8 @@ package comparisons
 
 import (
 	"jvmgo/instruction"
-	"jvmgo/rtda"
 	"jvmgo/instruction/stack"
+	"jvmgo/rtda"
 )
 
 //fcmpg和fcmpl指令

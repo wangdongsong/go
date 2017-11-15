@@ -6,7 +6,9 @@ import (
 )
 
 // Enter monitor for object
-type MONITOR_ENTER struct{ instruction.NoOperandsInstruction }
+type MONITOR_ENTER struct {
+	instruction.NoOperandsInstruction
+}
 
 func (self *MONITOR_ENTER) Execute(frame *rtda.Frame) {
 	thread := frame.Thread()
@@ -20,7 +22,9 @@ func (self *MONITOR_ENTER) Execute(frame *rtda.Frame) {
 }
 
 // Exit monitor for object
-type MONITOR_EXIT struct{ instruction.NoOperandsInstruction }
+type MONITOR_EXIT struct {
+	instruction.NoOperandsInstruction
+}
 
 func (self *MONITOR_EXIT) Execute(frame *rtda.Frame) {
 	thread := frame.Thread()

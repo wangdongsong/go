@@ -6,8 +6,8 @@ import "fmt"
 type Stack struct {
 	//栈最大容量
 	maxSize uint
-	size uint
-	_top *Frame
+	size    uint
+	_top    *Frame
 }
 
 func newStack(maxSize uint) *Stack {
@@ -72,5 +72,3 @@ func (self *Stack) topN(n uint) *Frame {
 
 	return frame
 }
-
-

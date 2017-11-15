@@ -6,14 +6,13 @@ package main
 import (
 	"flag"
 	"fmt"
+	"jvmgo/classfile"
+	"jvmgo/classpath"
 	"os"
 	"strings"
-	"jvmgo/classpath"
-	"jvmgo/classfile"
 )
 
-
-func startJVM(cmd *Cmd){
+func startJVM(cmd *Cmd) {
 	cp := classpath.Parse(cmd.XjreOption, cmd.cpOption)
 
 	fmt.Printf("classpath: %s class: %s args: %v\n", cmd.cpOption, cmd.class, cmd.args)
@@ -24,14 +23,14 @@ func startJVM(cmd *Cmd){
 	printClassInfo(cf)
 }
 
-func printClassInfo(cf *classfile.ClassFile)  {
-	fmt.Printf("version:%v.%v\n",cf.MajorVersion(),cf.MinorVersion())
+func printClassInfo(cf *classfile.ClassFile) {
+	fmt.Printf("version:%v.%v\n", cf.MajorVersion(), cf.MinorVersion())
 
 }
 
-func loadClass(className string, cp *classpath.Classpath) *classfile.ClassFile  {
+func loadClass(className string, cp *classpath.Classpath) *classfile.ClassFile {
 	classData, _, err := cp.ReadClass(className)
-	if err != nil{
+	if err != nil {
 		panic(err)
 	}
 	cf, err := classfile.Parse(classData)
@@ -42,15 +41,15 @@ func loadClass(className string, cp *classpath.Classpath) *classfile.ClassFile  
 }
 
 type Cmd struct {
-	helpFlag bool
+	helpFlag    bool
 	versionFlag bool
-	cpOption string
-	XjreOption string
-	class string
-	args []string
+	cpOption    string
+	XjreOption  string
+	class       string
+	args        []string
 }
 
-func parseCmd()  *Cmd {
+func parseCmd() *Cmd {
 	cmd := &Cmd{}
 
 	flag.Usage = printUsage
@@ -64,7 +63,7 @@ func parseCmd()  *Cmd {
 
 	args := flag.Args()
 
-	if(len(args) > 0){
+	if len(args) > 0 {
 		cmd.class = args[0]
 		cmd.args = args[1:]
 	}
@@ -72,6 +71,6 @@ func parseCmd()  *Cmd {
 	return cmd
 }
 
-func printUsage()  {
+func printUsage() {
 	fmt.Printf("Usage: %s [options] class [args...]\n", os.Args[0])
 }
