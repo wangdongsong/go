@@ -1,10 +1,10 @@
 package main
 
 import (
-	"github.com/urfave/cli"
-	log "github.com/sirupsen/logrus"
-	"mydocker/docker/container"
 	"fmt"
+	log "github.com/sirupsen/logrus"
+	"github.com/urfave/cli"
+	"mydocker/docker/container"
 	"os"
 )
 
@@ -12,13 +12,13 @@ const usage = "mydocker is a simple container runtime implementation. The Purpos
 	" of this project is to learn how docker works and how to write a docker by ourselves" +
 	" Enjoy it, just for fun."
 
-func main()  {
+func main() {
 
 	app := cli.NewApp()
 	app.Name = "mydocker"
 	app.Usage = usage
 
-	app.Commands = []cli.Command{initCommand, runCommand, }
+	app.Commands = []cli.Command{initCommand, runCommand}
 
 	app.Before = func(context *cli.Context) error {
 		log.SetFormatter(&log.JSONFormatter{})
@@ -32,11 +32,11 @@ func main()  {
 }
 
 var runCommand = cli.Command{
-	Name : "run",
+	Name:  "run",
 	Usage: "Create a container with namespace and cgroups limit mydocker run -ti[comman]",
 	Flags: []cli.Flag{
 		cli.BoolFlag{
-			Name: "ti",
+			Name:  "ti",
 			Usage: "enable tty",
 		},
 	},
@@ -51,12 +51,10 @@ var runCommand = cli.Command{
 		Run(tty, cmd)
 		return nil
 	},
-
 }
 
-
 var initCommand = cli.Command{
-	Name: "init",
+	Name:  "init",
 	Usage: "Init container process run user's process in container. Do not call it outside",
 
 	Action: func(context *cli.Context) error {
@@ -68,7 +66,7 @@ var initCommand = cli.Command{
 	},
 }
 
-func Run(tty bool, command string){
+func Run(tty bool, command string) {
 	parent := container.NewParentProcess(tty, command)
 	if err := parent.Start(); err != nil {
 		log.Error(err)
