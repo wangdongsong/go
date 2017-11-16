@@ -2,12 +2,12 @@ package main
 
 import (
 	"fmt"
-	"os/exec"
-	"syscall"
-	"os"
-	"path"
 	"io/ioutil"
+	"os"
+	"os/exec"
+	"path"
 	"strconv"
+	"syscall"
 )
 
 const cgroupMemoryHierarchyMount = "/sys/fs/cgroup/memroy"
@@ -31,7 +31,7 @@ func main() {
 	}
 
 	cmd := exec.Command("/proc/self/exe")
-	cmd.SysProcAttr = &syscall.SysProcAttr{Cloneflags: syscall.CLONE_NEWUTS | syscall.CLONE_NEWPID | syscall.CLONE_NEWNS,}
+	cmd.SysProcAttr = &syscall.SysProcAttr{Cloneflags: syscall.CLONE_NEWUTS | syscall.CLONE_NEWPID | syscall.CLONE_NEWNS}
 
 	cmd.Stdin = os.Stdin
 	cmd.Stdout = os.Stdout
