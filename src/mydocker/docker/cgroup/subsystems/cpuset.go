@@ -33,6 +33,17 @@ func (s *CpusetSubSystem) Apply(cgroupPath string, pid int) error {
 	}
 }
 
+func (s *CpusetSubSystem) Remove(cgroupPath string, pid int) error {
+	if subsysCgroupPath, err := GetCgroupPath(s.Name(), cgroupPath, false); err == nil {
+		if err := ioutil.WriteFile(path.Join(subsysCgroupPath, "tasks"), []byte(strconv.Itoa(pid)), 0644); err != nil {
+			return fmt.Errorf("set cgroup proc fail %v", err)
+		}
+		return nil
+	} else {
+		return fmt.Errorf("get cgroup %s error: %v", cgroupPath, err)
+	}
+}
+
 func (s *CpusetSubSystem) Name() string {
 	return "cpuset"
 }
