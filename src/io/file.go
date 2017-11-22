@@ -3,12 +3,14 @@ package main
 import (
 	"fmt"
 	"os"
+	"io/ioutil"
+	"path"
 )
 
 //IO
 func main() {
 
-	path := os.Args[1]
+	//path := os.Args[1]
 
 	//fmt.Println(os.Args[1])
 
@@ -17,17 +19,17 @@ func main() {
 	//fmt.Println(fileInfo.IsDir())
 	//fmt.Println(err)
 
+	/*
 	if err != nil {
 		error := os.Mkdir(path, 0755)
 		fmt.Println(error)
-	}
+	}*/
 
 	if err == nil && fileInfo.IsDir() {
 		fmt.Println(fileInfo.IsDir())
 	}
 
-
-
+	ioutil.WriteFile(path.Join(os.Args[1], "text.txt"), []byte("Hello"), 0644)
 
 	//获取当前执行程序的路径
 	//file, _ := exec.LookPath(os.Args[0])
