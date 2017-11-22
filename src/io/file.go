@@ -16,6 +16,8 @@ func main() {
 
 	fileInfo, err := os.Stat(os.Args[1])
 
+	ReadFile(os.Args[1])
+
 	//fmt.Println(fileInfo.IsDir())
 	//fmt.Println(err)
 
@@ -48,4 +50,14 @@ func PathExists(path string) (bool, error) {
 	}
 
 	return false, nil
+}
+
+func ReadFile(path string) {
+	fileInfo, err := ioutil.ReadDir(path)
+	fmt.Println(err)
+
+	for i := 0; i < len(fileInfo); i++ {
+		fmt.Println(fileInfo[i].Name(), fileInfo[i].IsDir())
+	}
+
 }
