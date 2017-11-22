@@ -6,6 +6,7 @@ import (
 	"github.com/urfave/cli"
 	"mydocker/docker/container"
 	"os"
+	"mydocker/docker/cgroup/subsystems"
 )
 
 const usage = "mydocker is a simple container runtime implementation. The Purpose" +
@@ -66,13 +67,3 @@ var initCommand = cli.Command{
 	},
 }
 
-func Run(tty bool, command string) {
-	parent := container.NewParentProcess(tty, command)
-	if err := parent.Start(); err != nil {
-		log.Error(err)
-	}
-
-	parent.Wait()
-	os.Exit(-1)
-
-}
