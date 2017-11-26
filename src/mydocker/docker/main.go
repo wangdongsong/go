@@ -6,7 +6,6 @@ import (
 	"github.com/urfave/cli"
 	"mydocker/docker/container"
 	"os"
-	"mydocker/docker/cgroup/subsystems"
 )
 
 const usage = "mydocker is a simple container runtime implementation. The Purpose" +
@@ -73,7 +72,7 @@ var initCommand = cli.Command{
 		log.Info("Init come on")
 		cmd := context.Args().Get(0)
 		log.Infof("command %s", cmd)
-		err := container.RunContainerInitProcess(cmd, nil)
+		err := container.RunContainerInitProcess()
 		return err
 	},
 }
