@@ -40,6 +40,11 @@ var runCommand = cli.Command{
 			Name:  "ti",
 			Usage: "enable tty",
 		},
+		//添加-v标签
+		cli.StringFlag{
+			Name: "v",
+			Usage: "Volume",
+		},
 	},
 
 	Action: func(context *cli.Context) error {
@@ -47,9 +52,15 @@ var runCommand = cli.Command{
 			return fmt.Errorf("Missing container command")
 		}
 
-		cmd := context.Args().Get(0)
+		var cmdArray []string
+		for _, arg := range context.Args() {
+			cmdArray = append(cmdArray, arg)
+		}
+
+		//cmd := context.Args().Get(0)
 		tty := context.Bool("ti")
-		Run(tty, cmd)
+		volume := context.String("v")
+		Run(tty, cmdArray, volume)
 		return nil
 	},
 }
