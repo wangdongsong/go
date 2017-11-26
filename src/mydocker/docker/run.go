@@ -4,12 +4,11 @@ import (
 	"mydocker/docker/container"
 	"os"
 	log "github.com/sirupsen/logrus"
-	"mydocker/docker/cgroup"
 	"strings"
 )
 
 func Run(tty bool, comArray []string, volume string) {
-	parent, writePipe := container.NewParentProcess(tty)
+	parent, writePipe := container.NewParentProcess(tty, volume)
 	if err := parent.Start(); err != nil {
 		log.Errorf("New parent process erro")
 		return
