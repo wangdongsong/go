@@ -3,7 +3,7 @@ package heap
 import (
 	"sync"
 
-	cp "github.com/zxh0/jvm.go/jvmgo/classpath"
+	cp "jvmgo/classpath"
 )
 
 // initialization state
