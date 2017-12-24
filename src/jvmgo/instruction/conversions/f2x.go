@@ -1,12 +1,14 @@
 package conversions
 
 import (
-	"jvmgo/rtda"
 	"jvmgo/instruction"
+	"jvmgo/rtda"
 )
 
 // Convert float to double
-type F2D struct{ instruction.NoOperandsInstruction }
+type F2D struct {
+	instruction.NoOperandsInstruction
+}
 
 func (self *F2D) Execute(frame *rtda.Frame) {
 	stack := frame.OperandStack()
@@ -16,7 +18,9 @@ func (self *F2D) Execute(frame *rtda.Frame) {
 }
 
 // Convert float to int
-type F2I struct{ instruction.NoOperandsInstruction }
+type F2I struct {
+	instruction.NoOperandsInstruction
+}
 
 func (self *F2I) Execute(frame *rtda.Frame) {
 	stack := frame.OperandStack()
@@ -26,7 +30,9 @@ func (self *F2I) Execute(frame *rtda.Frame) {
 }
 
 // Convert float to long
-type F2L struct{ instruction.NoOperandsInstruction }
+type F2L struct {
+	instruction.NoOperandsInstruction
+}
 
 func (self *F2L) Execute(frame *rtda.Frame) {
 	stack := frame.OperandStack()

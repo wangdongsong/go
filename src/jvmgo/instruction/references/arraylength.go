@@ -7,7 +7,9 @@ import (
 )
 
 // Get length of array
-type ARRAY_LENGTH struct{ instruction.NoOperandsInstruction }
+type ARRAY_LENGTH struct {
+	instruction.NoOperandsInstruction
+}
 
 func (self *ARRAY_LENGTH) Execute(frame *rtda.Frame) {
 	stack := frame.OperandStack()

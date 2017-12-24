@@ -1,8 +1,8 @@
 package rtda
 
 import (
-	"unsafe"
 	"jvmgo/rtda/heap"
+	"unsafe"
 )
 
 // see: jls8 12.4.2. Detailed Initialization Procedure

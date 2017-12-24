@@ -1,12 +1,14 @@
 package math
 
 import (
-	"jvmgo/rtda"
 	"jvmgo/instruction"
+	"jvmgo/rtda"
 )
 
 // Add double
-type DADD struct{ instruction.NoOperandsInstruction }
+type DADD struct {
+	instruction.NoOperandsInstruction
+}
 
 func (self *DADD) Execute(frame *rtda.Frame) {
 	stack := frame.OperandStack()
@@ -17,7 +19,9 @@ func (self *DADD) Execute(frame *rtda.Frame) {
 }
 
 // Add float
-type FADD struct{ instruction.NoOperandsInstruction }
+type FADD struct {
+	instruction.NoOperandsInstruction
+}
 
 func (self *FADD) Execute(frame *rtda.Frame) {
 	stack := frame.OperandStack()
@@ -28,7 +32,9 @@ func (self *FADD) Execute(frame *rtda.Frame) {
 }
 
 // Add int
-type IADD struct{ instruction.NoOperandsInstruction }
+type IADD struct {
+	instruction.NoOperandsInstruction
+}
 
 func (self *IADD) Execute(frame *rtda.Frame) {
 	stack := frame.OperandStack()
@@ -39,7 +45,9 @@ func (self *IADD) Execute(frame *rtda.Frame) {
 }
 
 // Add long
-type LADD struct{ instruction.NoOperandsInstruction }
+type LADD struct {
+	instruction.NoOperandsInstruction
+}
 
 func (self *LADD) Execute(frame *rtda.Frame) {
 	stack := frame.OperandStack()

@@ -14,10 +14,7 @@ package rtda
  接口类型	*Object
  数组类型	*Object
  null		nil
- */
+*/
 
 type Object struct {
-
 }
-
-

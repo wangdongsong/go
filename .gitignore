@@ -1,9 +1,5 @@
+bin/
+.project
 .idea/
-*.iml
-/build/
-.gradle/
-.git/
-*.ipr
-*.iws
-/target/
-/project/
+pkg/
+src/mydocker/docker/docker

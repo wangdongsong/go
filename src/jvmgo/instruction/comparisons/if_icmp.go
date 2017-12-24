@@ -1,8 +1,8 @@
 package comparisons
 
 import (
-	"jvmgo/rtda"
 	"jvmgo/instruction"
+	"jvmgo/rtda"
 )
 
 // Branch if int comparison succeeds

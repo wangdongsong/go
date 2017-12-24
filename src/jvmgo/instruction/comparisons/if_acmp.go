@@ -1,8 +1,8 @@
 package comparisons
 
 import (
-	"jvmgo/rtda"
 	"jvmgo/instruction"
+	"jvmgo/rtda"
 )
 
 // Branch if reference comparison succeeds
@@ -27,4 +27,3 @@ func _acmp(frame *rtda.Frame) bool {
 	ref1 := stack.PopRef()
 	return ref1 == ref2 // todo
 }
-

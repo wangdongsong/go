@@ -148,4 +148,3 @@ func (self *OperandStack) PopRef() *heap.Object {
 		return top.(*heap.Object)
 	}
 }
-

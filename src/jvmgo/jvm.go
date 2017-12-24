@@ -6,12 +6,12 @@ import (
 
 	"jvmgo/classpath"
 	"jvmgo/cmdline"
-	"jvmgo/jutil"
 	"jvmgo/interpreter"
+	"jvmgo/jutil"
+	_ "jvmgo/native"
 	"jvmgo/options"
 	"jvmgo/rtda"
 	"jvmgo/rtda/heap"
-	_"jvmgo/native"
 )
 
 func startJVM(cmd *cmdline.Command) {

@@ -1,12 +1,14 @@
 package math
 
 import (
-	"jvmgo/rtda"
 	"jvmgo/instruction"
+	"jvmgo/rtda"
 )
 
 // Negate double
-type DNEG struct{ instruction.NoOperandsInstruction }
+type DNEG struct {
+	instruction.NoOperandsInstruction
+}
 
 func (self *DNEG) Execute(frame *rtda.Frame) {
 	stack := frame.OperandStack()
@@ -15,7 +17,9 @@ func (self *DNEG) Execute(frame *rtda.Frame) {
 }
 
 // Negate float
-type FNEG struct{ instruction.NoOperandsInstruction }
+type FNEG struct {
+	instruction.NoOperandsInstruction
+}
 
 func (self *FNEG) Execute(frame *rtda.Frame) {
 	stack := frame.OperandStack()
@@ -24,7 +28,9 @@ func (self *FNEG) Execute(frame *rtda.Frame) {
 }
 
 // Negate int
-type INEG struct{ instruction.NoOperandsInstruction }
+type INEG struct {
+	instruction.NoOperandsInstruction
+}
 
 func (self *INEG) Execute(frame *rtda.Frame) {
 	stack := frame.OperandStack()
@@ -33,7 +39,9 @@ func (self *INEG) Execute(frame *rtda.Frame) {
 }
 
 // Negate long
-type LNEG struct{ instruction.NoOperandsInstruction }
+type LNEG struct {
+	instruction.NoOperandsInstruction
+}
 
 func (self *LNEG) Execute(frame *rtda.Frame) {
 	stack := frame.OperandStack()

@@ -76,9 +76,8 @@ func (self *LSHL) Execute(frame *rtda.Frame) {
 	stack.PushLong(result)
 }
 
-
 //算术右移
-func (self *LSHR) Execute(frame *rtda.Frame){
+func (self *LSHR) Execute(frame *rtda.Frame) {
 	stack := frame.OperandStack()
 	v2 := stack.PopInt()
 	v1 := stack.PopLong()
@@ -87,7 +86,6 @@ func (self *LSHR) Execute(frame *rtda.Frame){
 	stack.PushLong(result)
 
 }
-
 
 func (self *LUSHR) Execute(frame *rtda.Frame) {
 	stack := frame.OperandStack()

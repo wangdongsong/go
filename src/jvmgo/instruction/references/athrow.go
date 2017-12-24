@@ -4,8 +4,11 @@ import (
 	"jvmgo/instruction"
 	"jvmgo/rtda"
 )
+
 // Throw exception or error
-type ATHROW struct{ instruction.NoOperandsInstruction }
+type ATHROW struct {
+	instruction.NoOperandsInstruction
+}
 
 func (self *ATHROW) Execute(frame *rtda.Frame) {
 	ex := frame.OperandStack().PopRef()

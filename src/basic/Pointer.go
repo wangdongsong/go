@@ -5,9 +5,9 @@ import (
 )
 
 //定义常量
-const MAX  int = 3
+const MAX int = 3
 
-func main()  {
+func main() {
 
 	//basePointerFunc()
 
@@ -16,19 +16,19 @@ func main()  {
 
 }
 
-func pointArray()  {
+func pointArray() {
 	a := []int{10, 100, 200}
 
 	var i int
 
 	for i = 0; i < MAX; i++ {
-		fmt.Printf("a[%d] = %d\n", i,  a[i])
+		fmt.Printf("a[%d] = %d\n", i, a[i])
 	}
 
 	/*
 	 * 使用指针访问数组
 	 */
-	var ptr [MAX] *int
+	var ptr [MAX]*int
 	for i = 0; i < MAX; i++ {
 		ptr[i] = &a[i]
 	}
